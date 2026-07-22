@@ -14,8 +14,9 @@ export const site = {
 
 export const about = {
   intro:
+    "I am a software engineering student @uOttawa, building software that solves real problems. I enjoy turning ideas into practical projects, applying AI automation for clients through freelance work, researching AI integration at the MCR lab and continuously improving my skills.
     //"I'm building AI-powered products and taking on freelance AI-automation work while studying Software Engineering at uOttawa. Currently researching AI-driven interactive lecture systems at the MCR Lab, building ACL Buddy (a recovery app for ACL surgery patients), and leading a Shopify e-commerce build for Bacata Coffee.",
-  //ambition:
+  ambition:
     "I want to work at the frontier of AI engineering, which means shipping systems that are genuinely useful, not demos, and I'm building the public track record to prove it.",
 };
 
