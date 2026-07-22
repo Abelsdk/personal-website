@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NowPlaying } from "@/components/now-playing";
 import {
   about,
   experience,
@@ -22,6 +23,7 @@ export default function HomePage() {
         <p className="max-w-prose text-[15px] leading-relaxed opacity-80">
           {about.ambition}
         </p>
+        <NowPlaying />
       </section>
 
       <section className="space-y-6">

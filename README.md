@@ -1,6 +1,6 @@
 # Personal website
 
-Personal site for **Abdul Rahman El Saddik** — about/resume, projects, and writings. Built with Next.js, TypeScript, and Tailwind CSS. Light theme by default with a dark toggle. Black and white only.
+Personal site for **Abdul Rahman El Saddik** — about/resume, projects, writings, and Spotify Now Playing. Built with Next.js, TypeScript, and Tailwind CSS. Light theme by default with a dark toggle. Black and white only.
 
 ## Folder structure
 
@@ -8,40 +8,73 @@ Personal site for **Abdul Rahman El Saddik** — about/resume, projects, and wri
 personal-website/
 ├── app/
 │   ├── page.tsx              # Home / About
-│   ├── projects/page.tsx     # Project write-ups
-│   ├── writings/page.tsx     # Linked articles
-│   ├── layout.tsx            # Nav, footer, theme shell
-│   └── globals.css           # Light/dark tokens
+│   ├── projects/page.tsx
+│   ├── writings/page.tsx
+│   ├── api/spotify/route.ts  # Now Playing API (server)
+│   ├── layout.tsx
+│   └── globals.css
 ├── components/
+│   ├── now-playing.tsx
 │   ├── nav.tsx
 │   ├── footer.tsx
 │   ├── theme-provider.tsx
 │   └── theme-toggle.tsx
 ├── content/
-│   └── site.ts               # All copy: about, experience, projects, writings
+│   └── site.ts               # All copy
+├── lib/
+│   └── spotify.ts
+├── scripts/
+│   └── spotify-auth.mjs      # One-time refresh-token helper
 └── README.md
 ```
 
-Edit **`content/site.ts`** to update bio, roles, projects, and links. Keep valid TypeScript string quotes — a syntax error will break the Vercel build.
+Edit **`content/site.ts`** for bio/roles/projects. Keep valid TypeScript quotes — a syntax error breaks the Vercel build.
 
 ## Getting started
 
 ```bash
 npm install
+cp .env.example .env.local   # then fill Spotify vars (below)
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
-npm run build   # static export → out/
+npm run build
+npm start
 ```
+
+## Spotify Now Playing
+
+Shows the track you’re listening to (or last played) on the About page. Updates about every 30 seconds in the browser. Secrets stay on the server — never put them in `content/` or client components.
+
+### One-time setup
+
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) → **Create app**.
+2. App settings → **Redirect URIs** → add exactly:
+   `http://127.0.0.1:3456/callback`
+3. Copy **Client ID** and **Client Secret** into `.env.local`:
+
+```bash
+SPOTIFY_CLIENT_ID=...
+SPOTIFY_CLIENT_SECRET=...
+```
+
+4. Run the auth helper and approve access in the browser:
+
+```bash
+npm run spotify-auth
+```
+
+5. Paste the printed `SPOTIFY_REFRESH_TOKEN` into `.env.local`.
+6. On **Vercel** → Project → **Settings → Environment Variables**, add the same three vars for Production (and Preview if you want). Redeploy.
+
+Until env vars are set, the Now Playing block stays hidden (site still builds).
 
 ## Deploy
 
-**Vercel (recommended):** import the repo; framework preset Next.js. `output: "export"` still works on Vercel.
-
-**GitHub Pages:** push, then publish the `out/` folder from `npm run build` (or wire Actions to build and deploy `out`). If the site is not at the domain root, set `basePath` in `next.config.ts`.
+**Vercel:** import the GitHub repo (Next.js preset). This project uses a Node serverless route for Spotify, so it is **not** a static HTML export anymore (GitHub Pages alone won’t run `/api/spotify`).
 
 ## Theme
 
