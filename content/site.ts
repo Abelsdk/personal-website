@@ -14,8 +14,8 @@ export const site = {
 
 export const about = {
   intro:
-    "I'm building AI-powered products and taking on freelance AI-automation work while studying Software Engineering at uOttawa. Currently researching AI-driven interactive lecture systems at the MCR Lab, building ACL Buddy (a recovery app for ACL surgery patients), and leading a Shopify e-commerce build for Bacata Coffee.",
-  ambition:
+    //"I'm building AI-powered products and taking on freelance AI-automation work while studying Software Engineering at uOttawa. Currently researching AI-driven interactive lecture systems at the MCR Lab, building ACL Buddy (a recovery app for ACL surgery patients), and leading a Shopify e-commerce build for Bacata Coffee.",
+  //ambition:
     "I want to work at the frontier of AI engineering, which means shipping systems that are genuinely useful, not demos, and I'm building the public track record to prove it.",
 };
 
@@ -123,7 +123,7 @@ export const projects: Project[] = [
       "React",
       "Vite",
       "FastAPI",
-      "Ollama",
+      //"Ollama",
       "Llama 3.1",
       "ChromaDB",
       "sentence-transformers",
@@ -148,7 +148,7 @@ export const projects: Project[] = [
       problem:
         "Bacata Coffee needed a production e-commerce storefront that fit an existing Webflow marketing site — payments, shipping, and inventory — without a large engineering team.",
       solution:
-        "Led the full Shopify implementation as sole technical stakeholder, integrating with the live Webflow presence and configuring payment processing, shipping, and inventory end to end.",
+        "Led the Shopify implementation as sole technical stakeholder, integrating with the live Webflow presence and configuring payment processing, shipping, and inventory end to end.",
       outcome:
         "Independent technical delivery from requirements through store setup; translating business needs into a shippable commerce stack.",
     },
