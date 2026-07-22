@@ -82,6 +82,8 @@ export type Project = {
   dates: string;
   github?: string;
   demo?: string;
+  /** External case study (PDF / Drive / Notion). `null` = show placeholder until ready. */
+  caseStudyDoc?: string | null;
   stack: string[];
   body?: string[];
   caseStudy?: ProjectCaseStudy;
@@ -141,6 +143,7 @@ export const projects: Project[] = [
       "End-to-end Shopify storefront integrated with an existing Webflow site for Bacata Coffee.",
     dates: "Summer 2026 – Present",
     stack: ["Shopify", "Webflow"],
+    caseStudyDoc: null,
     caseStudy: {
       problem:
         "Bacata Coffee needed a production e-commerce storefront that fit an existing Webflow marketing site — payments, shipping, and inventory — without a large engineering team.",

@@ -92,7 +92,7 @@ export default function ProjectsPage() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4 text-sm">
+            <div className="flex flex-wrap items-center gap-4 text-sm">
               {project.github ? (
                 <a
                   href={project.github}
@@ -112,6 +112,25 @@ export default function ProjectsPage() {
                 >
                   Live demo
                 </a>
+              ) : null}
+              {project.caseStudyDoc !== undefined ? (
+                project.caseStudyDoc ? (
+                  <a
+                    href={project.caseStudyDoc}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex border border-foreground/25 px-3 py-1.5 text-sm underline-offset-4 transition-colors hover:bg-foreground hover:text-background"
+                  >
+                    Case study
+                  </a>
+                ) : (
+                  <span
+                    className="inline-flex cursor-default border border-dashed border-foreground/25 px-3 py-1.5 text-sm opacity-45"
+                    title="Full write-up and results coming soon"
+                  >
+                    Case study — coming soon
+                  </span>
+                )
               ) : null}
             </div>
 
