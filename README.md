@@ -15,17 +15,14 @@ personal-website/
 ├── components/
 │   ├── nav.tsx
 │   ├── footer.tsx
-│   ├── headshot.tsx
 │   ├── theme-provider.tsx
 │   └── theme-toggle.tsx
 ├── content/
 │   └── site.ts               # All copy: about, experience, projects, writings
-├── public/
-│   └── headshot.svg          # Replace with your photo (jpg/png ok)
 └── README.md
 ```
 
-Edit **`content/site.ts`** to update bio, roles, projects, and links. No CMS required.
+Edit **`content/site.ts`** to update bio, roles, projects, and links. Keep valid TypeScript string quotes — a syntax error will break the Vercel build.
 
 ## Getting started
 
@@ -45,10 +42,6 @@ npm run build   # static export → out/
 **Vercel (recommended):** import the repo; framework preset Next.js. `output: "export"` still works on Vercel.
 
 **GitHub Pages:** push, then publish the `out/` folder from `npm run build` (or wire Actions to build and deploy `out`). If the site is not at the domain root, set `basePath` in `next.config.ts`.
-
-## Headshot
-
-Replace `public/headshot.svg` with your portrait (square crop; `.jpg` / `.png` work — update the path in `components/headshot.tsx` if you rename).
 
 ## Theme
 

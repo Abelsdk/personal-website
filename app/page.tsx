@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Headshot } from "@/components/headshot";
 import {
   about,
   experience,
@@ -11,21 +10,18 @@ import {
 export default function HomePage() {
   return (
     <div className="space-y-16">
-      <section className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
-        <Headshot name={site.name} />
-        <div className="space-y-4">
-          <p className="font-mono text-xs tracking-widest uppercase opacity-50">
-            {site.location}
-          </p>
-          <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">
-            {site.name}
-          </h1>
-          <p className="text-base leading-relaxed opacity-70">{site.title}</p>
-          <p className="max-w-prose text-[15px] leading-relaxed">{about.intro}</p>
-          <p className="max-w-prose text-[15px] leading-relaxed opacity-80">
-            {about.ambition}
-          </p>
-        </div>
+      <section className="space-y-4">
+        <p className="font-mono text-xs tracking-widest uppercase opacity-50">
+          {site.location}
+        </p>
+        <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">
+          {site.name}
+        </h1>
+        <p className="text-base leading-relaxed opacity-70">{site.title}</p>
+        <p className="max-w-prose text-[15px] leading-relaxed">{about.intro}</p>
+        <p className="max-w-prose text-[15px] leading-relaxed opacity-80">
+          {about.ambition}
+        </p>
       </section>
 
       <section className="space-y-6">

@@ -1,11 +1,57 @@
 import type { Metadata } from "next";
-import { projects } from "@/content/site";
+import { projects, type ProjectCaseStudy } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
     "ACL Buddy, CRAFT Agents, and freelance work — thorough write-ups and source links.",
 };
+
+const caseStudyColumns: {
+  key: keyof ProjectCaseStudy;
+  label: string;
+}[] = [
+  { key: "problem", label: "Problem" },
+  { key: "solution", label: "Solution" },
+  { key: "outcome", label: "Outcome" },
+];
+
+function CaseStudyTable({ caseStudy }: { caseStudy: ProjectCaseStudy }) {
+  return (
+    <div
+      className="grid border-y border-foreground/15 sm:grid-cols-3"
+      role="table"
+      aria-label="Case study"
+    >
+      {caseStudyColumns.map((col, index) => (
+        <div
+          key={col.key}
+          role="row"
+          className={`space-y-2 py-4 sm:px-5 sm:py-5 ${
+            index === 0 ? "sm:pl-0" : ""
+          } ${index === caseStudyColumns.length - 1 ? "sm:pr-0" : "sm:border-r sm:border-foreground/10"} ${
+            index < caseStudyColumns.length - 1
+              ? "border-b border-foreground/10 sm:border-b-0"
+              : ""
+          }`}
+        >
+          <div
+            role="columnheader"
+            className="text-sm font-medium tracking-tight"
+          >
+            {col.label}
+          </div>
+          <p
+            role="cell"
+            className="text-[15px] leading-relaxed opacity-90"
+          >
+            {caseStudy[col.key]}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function ProjectsPage() {
   return (
@@ -69,11 +115,15 @@ export default function ProjectsPage() {
               ) : null}
             </div>
 
-            <div className="space-y-3 text-[15px] leading-relaxed opacity-90">
-              {project.body.map((paragraph) => (
-                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              ))}
-            </div>
+            {project.caseStudy ? (
+              <CaseStudyTable caseStudy={project.caseStudy} />
+            ) : project.body ? (
+              <div className="space-y-3 text-[15px] leading-relaxed opacity-90">
+                {project.body.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
+              </div>
+            ) : null}
           </article>
         ))}
       </div>
