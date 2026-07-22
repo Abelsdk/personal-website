@@ -4,7 +4,7 @@
  * 1. Create an app at https://developer.spotify.com/dashboard
  * 2. Edit Settings → Redirect URIs → add http://127.0.0.1:3456/callback
  * 3. Copy Client ID + Client Secret into .env.local (see .env.example)
- * 4. Run: node --env-file=.env.local scripts/spotify-auth.mjs
+ * 4. Run: npm run spotify-auth
  * 5. Open the printed URL, approve, then paste the refresh token into
  *    .env.local and Vercel → Project → Settings → Environment Variables
  */
@@ -70,11 +70,7 @@ const server = http.createServer(async (req, res) => {
       }),
     });
 
-    const json = (await tokenRes.json()) as {
-      refresh_token?: string;
-      error?: string;
-      error_description?: string;
-    };
+    const json = await tokenRes.json();
 
     if (!tokenRes.ok || !json.refresh_token) {
       res.writeHead(500, { "Content-Type": "text/plain" });
