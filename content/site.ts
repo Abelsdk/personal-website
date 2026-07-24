@@ -156,7 +156,7 @@ export const projects: Project[] = [
       solution:
         "Led the Shopify implementation as sole technical stakeholder, integrating with the live Webflow presence and configuring payment processing, shipping, and inventory end to end.",
       outcome:
-        "Independent technical delivery from requirements through store setup; translating business needs into a shippable commerce stack.",
+        "Independent technical delivery from requirements through store setup; translating business needs into a shippable commerce stack. Created an additional revenue channel with potential 25% increase",
     },
   },
 ];
