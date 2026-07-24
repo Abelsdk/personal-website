@@ -69,6 +69,8 @@ export const study = {
   certification: "AI Automation with Python — Google via Coursera (2025)",
 };
 
+export type ProjectCategory = "Development" | "Freelance";
+
 export type ProjectCaseStudy = {
   problem: string;
   solution: string;
@@ -80,6 +82,7 @@ export type Project = {
   title: string;
   summary: string;
   dates: string;
+  category: ProjectCategory;
   github?: string;
   demo?: string;
   /** External case study (PDF / Drive / Notion). `null` = show placeholder until ready. */
@@ -93,6 +96,7 @@ export const projects: Project[] = [
   {
     slug: "acl-buddy",
     title: "ACL Buddy",
+    category: "Development",
     summary:
       "A PWA for ACL surgery patients: research-based recovery protocols, rehab timelines, and exercise libraries, grounded in verified clinical literature.",
     dates: "2026 – ongoing",
@@ -115,6 +119,7 @@ export const projects: Project[] = [
   {
     slug: "craft-agents",
     title: "CRAFT Agents",
+    category: "Development",
     summary:
       "An ai presentation-building tool with a multi-agent pipeline (Context → Roadmap → Assemble → Fine-Tune → Tell), RAG-backed document/image ingestion, and a React/FastAPI interface.",
     dates: "2025 – 2026",
@@ -139,6 +144,7 @@ export const projects: Project[] = [
   {
     slug: "bacata-coffee",
     title: "Bacata Coffee — Shopify + Webflow",
+    category: "Freelance",
     summary:
       "End-to-end Shopify storefront integrated with an existing Webflow site for Bacata Coffee.",
     dates: "Summer 2026 – Present",

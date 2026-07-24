@@ -89,10 +89,15 @@ export default function HomePage() {
             <li key={project.slug}>
               <Link
                 href={`/projects#${project.slug}`}
-                className="flex flex-col gap-1 py-4 transition-opacity hover:opacity-70 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                className="flex flex-col gap-2 py-4 transition-opacity hover:opacity-70 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
               >
-                <span className="font-medium tracking-tight">
-                  {project.title}
+                <span className="flex min-w-0 flex-col gap-1.5 sm:flex-row sm:items-baseline sm:gap-3">
+                  <span className="font-mono text-[10px] tracking-wide uppercase opacity-45">
+                    {project.category}
+                  </span>
+                  <span className="font-medium tracking-tight">
+                    {project.title}
+                  </span>
                 </span>
                 <span className="font-mono text-xs opacity-45">
                   {project.dates}
