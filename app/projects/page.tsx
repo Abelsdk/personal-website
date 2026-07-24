@@ -3,20 +3,12 @@ import {
   projects,
   type Project,
   type ProjectCaseStudy,
-  type ProjectCategory,
 } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
     "Development and freelance projects — thorough write-ups and source links.",
-};
-
-const categoryOrder: ProjectCategory[] = ["Development", "Freelance"];
-
-const categoryBlurb: Record<ProjectCategory, string> = {
-  Development: "Products and tools I’ve designed and shipped myself.",
-  Freelance: "Client engagements — commerce, automation, and delivery.",
 };
 
 const caseStudyColumns: {
@@ -148,13 +140,6 @@ function ProjectArticle({ project }: { project: Project }) {
 }
 
 export default function ProjectsPage() {
-  const grouped = categoryOrder
-    .map((category) => ({
-      category,
-      items: projects.filter((project) => project.category === category),
-    }))
-    .filter((group) => group.items.length > 0);
-
   return (
     <div className="space-y-14">
       <header className="space-y-3">
@@ -164,23 +149,9 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="space-y-20">
-        {grouped.map((group) => (
-          <section key={group.category} className="space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-sm font-medium tracking-widest uppercase opacity-50">
-                {group.category}
-              </h2>
-              <p className="max-w-prose text-[15px] leading-relaxed opacity-70">
-                {categoryBlurb[group.category]}
-              </p>
-            </div>
-            <div className="space-y-16">
-              {group.items.map((project) => (
-                <ProjectArticle key={project.slug} project={project} />
-              ))}
-            </div>
-          </section>
+      <div className="space-y-0">
+        {projects.map((project) => (
+          <ProjectArticle key={project.slug} project={project} />
         ))}
       </div>
     </div>

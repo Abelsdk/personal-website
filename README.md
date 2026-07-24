@@ -1,6 +1,6 @@
 # Personal website
 
-Personal site for **Abdul Rahman El Saddik** — about/resume, projects, writings, and Spotify Now Playing. Built with Next.js, TypeScript, and Tailwind CSS. Light theme by default with a dark toggle. Black and white only.
+Personal site for **Abdul Rahman El Saddik** — about/resume, projects, writings, and Spotify Now Playing. Built with Next.js, TypeScript, and Tailwind CSS. Light theme by default with a dark toggle. Black and white only. Body font: EB Garamond.
 
 ## Folder structure
 
@@ -79,3 +79,5 @@ Until env vars are set, the Now Playing block stays hidden (site still builds).
 ## Theme
 
 Default is light. Preference is stored in `localStorage` under `theme`. Toggle lives in the nav.
+
+Body type is **EB Garamond**; mono labels/tags use JetBrains Mono.
