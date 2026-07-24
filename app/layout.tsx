@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { EB_Garamond, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Libre_Baskerville } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { ThemeProvider } from "@/components/theme-provider";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const ebGaramond = EB_Garamond({
-  variable: "--font-eb-garamond",
+const libreBaskerville = Libre_Baskerville({
+  variable: "--font-libre-baskerville",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -34,7 +35,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${ebGaramond.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${libreBaskerville.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <script
