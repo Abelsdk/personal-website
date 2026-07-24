@@ -143,7 +143,7 @@ export const projects: Project[] = [
       "End-to-end Shopify storefront integrated with an existing Webflow site for Bacata Coffee.",
     dates: "Summer 2026 – Present",
     stack: ["Shopify", "Webflow"],
-    caseStudyDoc: null,
+    caseStudyDoc: "/bacata-coffee-case-study.pdf",
     caseStudy: {
       problem:
         "Bacata Coffee needed a production e-commerce storefront that fit an existing Webflow marketing site — payments, shipping, and inventory — without a large engineering team.",
